@@ -28,7 +28,7 @@
             padding: 0 24px;
         }
 
-        /* Dark theme header */
+        /* Header */
         header {
             background: #111111;
             border-bottom: 1px solid #2a2a2a;
@@ -89,20 +89,6 @@
         .btn-primary:hover {
             background-color: #2563eb;
         }
-        .btn-outline {
-            border: 1.5px solid #3b82f6;
-            background: transparent;
-            color: #3b82f6;
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-        .btn-outline:hover {
-            background: #3b82f6;
-            color: white;
-        }
 
         /* Hero */
         .hero {
@@ -141,6 +127,7 @@
             display: block;
         }
 
+        /* Sections */
         section {
             padding: 70px 0;
             border-bottom: 1px solid #1e293b;
@@ -159,6 +146,7 @@
             color: #94a3b8;
         }
 
+        /* Grids */
         .services-grid, .team-grid, .clients-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,6 +183,8 @@
         .team-info {
             padding: 20px;
         }
+
+        /* Stats */
         .stats {
             background: #0f172a;
         }
@@ -210,6 +200,8 @@
             font-weight: 800;
             color: #3b82f6;
         }
+
+        /* Forms */
         .contact-form, .recruit-form {
             background: #1e293b;
             padding: 40px;
@@ -230,29 +222,95 @@
             font-family: inherit;
             color: white;
         }
+
+        /* Terms scannable */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .term-card {
+            background: #1e293b;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            border-radius: 16px;
+            transition: transform 0.2s;
+        }
+        .term-card:hover {
+            transform: translateX(4px);
+            background: #2d3a4e;
+        }
+        .term-number {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            font-weight: bold;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 50%;
+            margin-right: 12px;
+            margin-bottom: 10px;
+        }
+        .term-card strong {
+            font-size: 1.2rem;
+            color: white;
+        }
+        .term-card p {
+            margin-top: 8px;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        /* Footer */
         footer {
             background: #020617;
-            padding: 40px 0;
-            text-align: center;
+            padding: 40px 0 20px;
             border-top: 1px solid #1e293b;
         }
-        .footer-links {
-            margin-bottom: 20px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        .footer-links a {
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .footer-col p, .footer-col a {
             color: #94a3b8;
             text-decoration: none;
-            margin: 0 15px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
         }
-        .footer-links a:hover {
+        .footer-col a:hover {
             color: #3b82f6;
         }
+        .social-icons a {
+            margin-right: 15px;
+            font-size: 1.4rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             .hero-text h1 {
                 font-size: 2rem;
+            }
+            .stats-grid {
+                flex-direction: column;
             }
         }
     </style>
@@ -262,7 +320,7 @@
 <header>
     <div class="container nav-bar">
         <div class="logo">
-            <!-- Remplace 'chemin_vers_ton_logo.webp' par le vrai chemin de ton image -->
+            <!-- Remplace 'logo.webp' par le vrai chemin de ton fichier image -->
             <img src="https://i.ibb.co/2382y3P1/IMG-20260522-123532-209.webp" alt="HBW Data Solutions Logo">
             <span>HBW Data Solutions</span>
         </div>
@@ -272,12 +330,13 @@
             <a href="#quality">Quality</a>
             <a href="#contact">Contact</a>
             <a href="#recruit">Recruit</a>
+            <a href="#terms">Terms</a>
         </div>
         <a href="#contact" class="btn-primary" style="padding: 10px 22px;">Get a quote</a>
     </div>
 </header>
 
-<!-- Hero section -->
+<!-- Hero -->
 <section class="hero">
     <div class="container hero-grid">
         <div class="hero-text">
@@ -286,7 +345,7 @@
             <a href="#contact" class="btn-primary">Start a free 500-task pilot →</a>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" alt="Team working on laptops">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" alt="Team working">
         </div>
     </div>
 </section>
@@ -296,26 +355,10 @@
     <div class="container">
         <h2 class="section-title">What we do best</h2>
         <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-image"></i>
-                <h3>Image annotation</h3>
-                <p>Bounding boxes, polygons, segmentation, classification – ready for computer vision models.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-microphone-alt"></i>
-                <h3>Audio transcription</h3>
-                <p>High‑quality transcription and labeling for speech‑to‑text and NLP datasets.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>Text & content</h3>
-                <p>Sentiment analysis, categorization, data validation and moderation at scale.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-tasks"></i>
-                <h3>Micro‑tasks & surveys</h3>
-                <p>Cost‑effective, high‑volume human‑in‑the‑loop tasks with rapid turnaround.</p>
-            </div>
+            <div class="service-card"><i class="fas fa-image"></i><h3>Image annotation</h3><p>Bounding boxes, polygons, segmentation – ready for computer vision.</p></div>
+            <div class="service-card"><i class="fas fa-microphone-alt"></i><h3>Audio transcription</h3><p>Speech‑to‑text, labeling, and NLP dataset preparation.</p></div>
+            <div class="service-card"><i class="fas fa-file-alt"></i><h3>Text & content</h3><p>Sentiment analysis, categorization, data validation.</p></div>
+            <div class="service-card"><i class="fas fa-tasks"></i><h3>Micro‑tasks & surveys</h3><p>High‑volume human‑in‑the‑loop with rapid turnaround.</p></div>
         </div>
     </div>
 </section>
@@ -323,34 +366,24 @@
 <!-- Team -->
 <section id="team">
     <div class="container">
-        <h2 class="section-title">Our core team & operations</h2>
-        <p class="section-sub">24 dedicated team leaders supervising 720+ vetted annotators – all working remotely from Haiti.</p>
+        <h2 class="section-title">Our core team</h2>
+        <p class="section-sub">24 team leaders + 720+ vetted annotators – all working remotely from Haiti.</p>
         <div class="team-grid">
-            <div class="team-member">
-                <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&auto=format" alt="Data annotator working">
-                <div class="team-info"><h4>Quality control</h4><p>Multi‑layer verification</p></div>
-            </div>
-            <div class="team-member">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format" alt="Team meeting">
-                <div class="team-info"><h4>24/7 coordination</h4><p>Fast adaptation</p></div>
-            </div>
-            <div class="team-member">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format" alt="Developer annotating">
-                <div class="team-info"><h4>Tech & tools</h4><p>Label Studio, CVAT, custom flows</p></div>
-            </div>
+            <div class="team-member"><img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&auto=format" alt="Annotator"><div class="team-info"><h4>Quality control</h4><p>Multi‑layer verification</p></div></div>
+            <div class="team-member"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format" alt="Team meeting"><div class="team-info"><h4>24/7 coordination</h4><p>Fast adaptation</p></div></div>
+            <div class="team-member"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format" alt="Tech"><div class="team-info"><h4>Tech & tools</h4><p>Label Studio, CVAT, custom flows</p></div></div>
         </div>
     </div>
 </section>
 
-<!-- Quality process -->
+<!-- Quality -->
 <section id="quality">
     <div class="container">
-        <h2 class="section-title">Our Quality Assurance Process</h2>
-        <p class="section-sub">Every project goes through a strict multi‑stage verification to guarantee 95%+ accuracy.</p>
+        <h2 class="section-title">Our quality process</h2>
         <div class="services-grid">
             <div class="service-card"><i class="fas fa-clipboard-list"></i><h3>1. Guidelines</h3><p>Custom instructions per project</p></div>
             <div class="service-card"><i class="fas fa-users"></i><h3>2. Annotation</h3><p>720+ workers execute</p></div>
-            <div class="service-card"><i class="fas fa-check-double"></i><h3>3. Team Leader review</h3><p>100% samples checked</p></div>
+            <div class="service-card"><i class="fas fa-check-double"></i><h3>3. Team review</h3><p>100% samples checked</p></div>
             <div class="service-card"><i class="fas fa-chart-line"></i><h3>4. Final audit</h3><p>Random batch validation</p></div>
         </div>
     </div>
@@ -362,7 +395,7 @@
         <div class="stat-item"><h3>720+</h3><p>Annotators</p></div>
         <div class="stat-item"><h3>24</h3><p>Team leaders</p></div>
         <div class="stat-item"><h3>95%+</h3><p>Accuracy guarantee</p></div>
-        <div class="stat-item"><h3>24h</h3><p>Typical pilot delivery</p></div>
+        <div class="stat-item"><h3>24h</h3><p>Pilot delivery</p></div>
     </div>
 </section>
 
@@ -372,11 +405,11 @@
         <h2 class="section-title">Let’s talk about your data needs</h2>
         <div class="contact-form">
             <form action="https://formsubmit.co/hbwdatasolutions@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New client inquiry from HBW website">
+                <input type="hidden" name="_subject" value="New client inquiry - HBW website">
                 <input type="hidden" name="_captcha" value="false">
                 <div class="form-group"><input type="text" name="name" placeholder="Your name" required></div>
                 <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
-                <div class="form-group"><textarea rows="4" name="message" placeholder="Tell us about your project (volume, type of data, deadline...)"></textarea></div>
+                <div class="form-group"><textarea rows="4" name="message" placeholder="Project details (volume, data type, deadline...)"></textarea></div>
                 <button type="submit" class="btn-primary" style="width:100%;">Send message →</button>
             </form>
         </div>
@@ -386,7 +419,7 @@
 <!-- Recrutement -->
 <section id="recruit">
     <div class="container">
-        <h2 class="section-title">Join HBW team – recruitment</h2>
+        <h2 class="section-title">Join the HBW team</h2>
         <div class="recruit-form">
             <form action="https://formsubmit.co/hbwdatasolutions@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="New job application - HBW">
@@ -395,41 +428,40 @@
                 <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
                 <div class="form-group"><input type="tel" name="phone" placeholder="Phone number (WhatsApp)"></div>
                 <div class="form-group"><select name="position" required><option value="">Select position</option><option>Annotator (worker)</option><option>Team leader</option><option>Quality controller</option></select></div>
-                <div class="form-group"><textarea rows="4" name="experience" placeholder="Tell us about your experience (computer, internet, previous work)"></textarea></div>
+                <div class="form-group"><textarea rows="4" name="experience" placeholder="Tell us about your experience with computers, internet, or previous work"></textarea></div>
                 <button type="submit" class="btn-primary" style="width:100%;">Submit application →</button>
             </form>
         </div>
     </div>
 </section>
 
-<!-- Terms and conditions -->
+<!-- Terms & Conditions (scannable) -->
 <section id="terms">
     <div class="container">
         <h2 class="section-title">Terms & Conditions</h2>
-        <div style="background:#1e293b; padding:30px; border-radius:24px; margin-top:20px;">
-            <p><strong>1. Services</strong> – HBW Data Solutions provides data annotation, transcription, and micro‑task services as agreed per project.</p>
-            <p><strong>2. Confidentiality</strong> – All client data is treated as confidential and deleted after project completion unless otherwise stated.</p>
-            <p><strong>3. Quality</strong> – We guarantee 95%+ accuracy. Any batch below this threshold will be re‑annotated at no extra cost.</p>
-            <p><strong>4. Payment</strong> – Invoices are due within 15 days. Crypto payments (USDT, USDC) accepted via AirTM or direct wallet.</p>
-            <p><strong>5. Liability</strong> – HBW is not responsible for indirect damages. Maximum liability is limited to the project value.</p>
-            <p><strong>6. Termination</strong> – Either party may terminate a contract with 7 days written notice.</p>
-            <p><i>Last updated: May 2026. For full version, contact us.</i></p>
+        <div class="terms-grid">
+            <div class="term-card"><span class="term-number">1</span><strong>Services</strong><p>HBW Data Solutions provides data annotation, transcription, and micro‑task services as agreed per project.</p></div>
+            <div class="term-card"><span class="term-number">2</span><strong>Confidentiality</strong><p>All client data is treated as confidential and deleted after project completion unless otherwise stated.</p></div>
+            <div class="term-card"><span class="term-number">3</span><strong>Quality Guarantee</strong><p>We guarantee 95%+ accuracy. Any batch below this threshold will be re‑annotated at no extra cost.</p></div>
+            <div class="term-card"><span class="term-number">4</span><strong>Payment Terms</strong><p>Invoices are due within 15 days. Crypto payments (USDT, USDC, BTC) accepted via AirTM or direct digital wallet.</p></div>
+            <div class="term-card"><span class="term-number">5</span><strong>Liability</strong><p>HBW is not responsible for indirect damages. Maximum liability is limited to the project value.</p></div>
+            <div class="term-card"><span class="term-number">6</span><strong>Termination</strong><p>Either party may terminate a contract with 7 days written notice.</p></div>
         </div>
+        <p style="text-align: center; margin-top: 30px; color: #94a3b8; font-size: 0.85rem;">Last updated: May 2026 – For full version, contact us.</p>
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
     <div class="container">
-        <div class="footer-links">
-            <a href="#services">Services</a> |
-            <a href="#contact">Contact</a> |
-            <a href="#recruit">Recruitment</a> |
-            <a href="#terms">Terms</a>
+        <div class="footer-grid">
+            <div class="footer-col"><h4>HBW Data Solutions</h4><p>High‑volume data labeling agency based in Haiti.<br>720+ annotators • 24 team leaders • 95%+ accuracy.</p></div>
+            <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-map-marker-alt"></i> Based in Delmas, Haiti</p><p><i class="fas fa-envelope"></i> hbwdatasolutions@gmail.com</p><p><i class="fas fa-phone"></i> +509 4144 0425</p></div>
+            <div class="footer-col"><h4>Legal</h4><p><a href="#terms">Terms & Conditions</a></p><p><a href="#">Privacy Policy (upon request)</a></p><p>© 2026 HBW Data Solutions</p></div>
+            <div class="footer-col"><h4>Follow us</h4><div class="social-icons"><a href="#"><i class="fab fa-linkedin"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-whatsapp"></i></a> <a href="#"><i class="fab fa-telegram"></i></a></div></div>
         </div>
-        <p>📍 Based in Delmas, Haiti | 📧 hbwdatasolutions@gmail.com | 📞 +509 4144 0425</p>
-        <p>© 2026 HBW Data Solutions – All rights reserved. High‑volume data labeling agency.</p>
-        <p style="margin-top:10px;"><i class="fab fa-linkedin"></i> &nbsp; <i class="fab fa-twitter"></i> &nbsp; <i class="fab fa-whatsapp"></i> &nbsp; <i class="fab fa-telegram"></i></p>
+        <div class="footer-bottom"><p>© 2026 HBW Data Solutions – All rights reserved. Professional data labeling & AI training.</p></div>
     </div>
 </footer>
 </body>
-                </html>
+                                          </html>
