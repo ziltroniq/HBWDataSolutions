@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>HBW Data Solutions – Data Labeling & AI Training Agency</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0f3b5c;
+        }
+        .logo span {
+            color: #2c7da0;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2c7da0;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #0f3b5c;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #1f5e83;
+        }
+        .btn-outline {
+            border: 1.5px solid #0f3b5c;
+            background: transparent;
+            color: #0f3b5c;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background: #0f3b5c;
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #eef2f5 0%, #ffffff 100%);
+            padding: 60px 0;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0a2a3b;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 30px;
+        }
+        .hero-image {
+            flex: 1;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 70px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #0a2a3b;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #475569;
+        }
+
+        /* Services cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+        }
+        .service-card i {
+            font-size: 2.5rem;
+            color: #2c7da0;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        /* Team section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .team-member img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .team-info {
+            padding: 20px;
+        }
+        .team-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .team-info p {
+            color: #2c7da0;
+            font-weight: 500;
+        }
+
+        /* Stats */
+        .stats {
+            background: #0f3b5c;
+            color: white;
+        }
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: center;
+            gap: 30px;
+        }
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        /* Contact */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+        }
+        footer {
+            background: #0a2a3b;
+            color: #cbd5e1;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .stats-grid {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-bar">
+        <div class="logo">
+            <h1>HBW <span>Data Solutions</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn-primary" style="padding: 10px 22px;">Get a quote</a>
+    </div>
+</header>
+
+<!-- Hero section -->
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>High‑volume data labeling &<br>AI training done right.</h1>
+            <p>720+ trained annotators • 24 team leaders • 95%+ accuracy<br>Based in Haiti – serving clients worldwide.</p>
+            <a href="#contact" class="btn-primary">Start a free 500-task pilot →</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format" alt="Team working on laptops">
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">What we do best</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-image"></i>
+                <h3>Image annotation</h3>
+                <p>Bounding boxes, polygons, segmentation, classification – ready for computer vision models.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Audio transcription</h3>
+                <p>High‑quality transcription and labeling for speech‑to‑text and NLP datasets.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Text & content</h3>
+                <p>Sentiment analysis, categorization, data validation and moderation at scale.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tasks"></i>
+                <h3>Micro‑tasks & surveys</h3>
+                <p>Cost‑effective, high‑volume human‑in‑the‑loop tasks with rapid turnaround.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team / Workforce images (free unsplash) -->
+<section id="team">
+    <div class="container">
+        <h2 class="section-title">Our core team & operations</h2>
+        <p class="section-sub">24 dedicated team leaders supervising 720+ vetted annotators – all working remotely from Haiti.</p>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&auto=format" alt="Data annotator working">
+                <div class="team-info">
+                    <h4>Quality control</h4>
+                    <p>Multi‑layer verification</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&auto=format" alt="Team meeting">
+                <div class="team-info">
+                    <h4>24/7 coordination</h4>
+                    <p>Fast adaptation</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&auto=format" alt="Developer annotating">
+                <div class="team-info">
+                    <h4>Tech & tools</h4>
+                    <p>Label Studio, CVAT, custom flows</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&auto=format" alt="Workplace">
+                <div class="team-info">
+                    <h4>Scalable workforce</h4>
+                    <p>Mobilize in <48h</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+    <div class="container stats-grid">
+        <div class="stat-item"><h3>720+</h3><p>Annotators</p></div>
+        <div class="stat-item"><h3>24</h3><p>Team leaders</p></div>
+        <div class="stat-item"><h3>95%+</h3><p>Accuracy guarantee</p></div>
+        <div class="stat-item"><h3>24h</h3><p>Typical pilot delivery</p></div>
+    </div>
+</section>
+
+<!-- Contact + form -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Let’s talk about your data needs</h2>
+        <div class="contact-form">
+            <form action="https://formsubmit.co/hbwdatasolutions@gmail.com" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email address" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" name="message" placeholder="Tell us about your project (volume, type of data, deadline...)"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;">Send message →</button>
+            </form>
+            <p style="text-align:center; margin-top:20px; font-size:0.85rem;">We respond within 24h. Free 500-task pilot for first clients.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025 HBW Data Solutions – Data labeling agency based in Haiti. Trusted by AI startups worldwide.</p>
+        <p style="margin-top:10px;"><i class="fab fa-linkedin"></i> &nbsp; <i class="fab fa-twitter"></i> &nbsp; <i class="fab fa-whatsapp"></i> &nbsp; hbwdatasolutions@gmail.com</p>
+    </div>
+</footer>
+
+</body>
+</html>
